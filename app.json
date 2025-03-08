@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "BorrowEase2",
-    "slug": "BorrowEase2",
+    "name": "BookBorrowEase",
+    "slug": "BookBorrowEase",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.alan2004.BookBorrowEase"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +37,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f522600b-b01d-4020-aa39-bed8ab05707d"
+      }
+    },
+    "owner": "alan2004"
   }
 }
