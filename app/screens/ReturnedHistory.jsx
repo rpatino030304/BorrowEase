@@ -55,19 +55,49 @@ export default function ReturnedHistory() {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 20, backgroundColor: '#f8f8f8' },
-    header: { fontSize: 24, fontWeight: 'bold', textAlign: 'center', marginBottom: 15, color: '#333' },
+    container: { 
+        flex: 1, 
+        padding: 20, 
+        backgroundColor: 'black'  // Changed background to black
+    },
+    header: { 
+        fontSize: 24, 
+        fontWeight: 'bold', 
+        textAlign: 'center', 
+        marginBottom: 15, 
+        color: 'white'  // Changed text to white
+    },
     loader: { marginTop: 20 },
-    noBooks: { textAlign: 'center', fontSize: 16, color: 'gray', marginTop: 20 },
+    noBooks: { 
+        textAlign: 'center', 
+        fontSize: 16, 
+        color: 'white',  // Changed text to white
+        marginTop: 20 
+    },
     bookCard: {
-        backgroundColor: '#fff',
+        backgroundColor: '#222',  // Dark background for contrast
         padding: 15,
         marginVertical: 8,
         borderRadius: 8,
         elevation: 3,
     },
-    bookTitle: { fontSize: 18, fontWeight: 'bold', color: '#333' },
-    studentName: { fontSize: 14, color: '#555' },
-    studentId: { fontSize: 14, color: '#555' },
-    returnedAt: { fontSize: 14, color: '#555', marginTop: 5 },
+    bookTitle: { 
+        fontSize: 18, 
+        fontWeight: 'bold', 
+        color: 'white'  // Changed text to white
+    },
+    studentName: { 
+        fontSize: 14, 
+        color: 'white'  // Changed text to white
+    },
+    studentId: { 
+        fontSize: 14, 
+        color: 'white'  // Changed text to white
+    },
+    returnedAt: { 
+        fontSize: 14, 
+        color: 'white',  // Changed text to white
+        marginTop: 5 
+    },
 });
+

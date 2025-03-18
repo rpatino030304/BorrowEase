@@ -84,7 +84,7 @@ export default function AvailableBooks() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>📚 Available Books</Text>
+      <Text style={styles.header}>📚 Search for Books</Text>
 
       {loading ? (
         <ActivityIndicator size="large" color="#4A90E2" style={styles.loader} />
@@ -131,18 +131,21 @@ export default function AvailableBooks() {
             <Text style={styles.modalBookTitle}>{selectedBook?.title}</Text>
 
             <TextInput
-              style={styles.input}
-              placeholder="Enter Student Name"
-              value={studentName}
-              onChangeText={setStudentName}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Enter Student ID"
-              keyboardType="numeric"
-              value={studentId}
-              onChangeText={setStudentId}
-            />
+  style={styles.input}
+  placeholder="Enter Student Name"
+  placeholderTextColor="white"
+  value={studentName}
+  onChangeText={setStudentName}
+/>
+<TextInput
+  style={styles.input}
+  placeholder="Enter Student ID"
+  keyboardType="numeric"
+  placeholderTextColor="white"
+  value={studentId}
+  onChangeText={setStudentId}
+/>
+
 
             <View style={styles.modalButtons}>
               <TouchableOpacity 
@@ -166,13 +169,13 @@ export default function AvailableBooks() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: '#f8f8f8' },
-  header: { fontSize: 24, fontWeight: 'bold', textAlign: 'center', marginBottom: 15, color: '#333' },
+  container: { flex: 1, padding: 20, backgroundColor: 'black' },
+  header: { fontSize: 24, fontWeight: 'bold', textAlign: 'center', marginBottom: 15, color: 'white' },
   loader: { marginTop: 20 },
-  noBooks: { textAlign: 'center', fontSize: 16, color: 'gray', marginTop: 20 },
+  noBooks: { textAlign: 'center', fontSize: 16, color: '#bbb', marginTop: 20 },
   bookCard: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: '#222', // Dark background for book card
     padding: 15,
     marginVertical: 8,
     borderRadius: 8,
@@ -184,15 +187,15 @@ const styles = StyleSheet.create({
     width: 70,
     height: 100,
     borderRadius: 5,
-    backgroundColor: '#ddd',
+    backgroundColor: '#444', // Darker gray for contrast
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 15,
   },
-  placeholderText: { color: '#888', fontSize: 12 },
+  placeholderText: { color: '#bbb', fontSize: 12 },
   bookInfo: { flex: 1 },
-  bookTitle: { fontSize: 18, fontWeight: 'bold', color: '#333' },
-  bookAuthor: { fontSize: 14, color: '#555', marginBottom: 10 },
+  bookTitle: { fontSize: 18, fontWeight: 'bold', color: 'white' },
+  bookAuthor: { fontSize: 14, color: '#bbb', marginBottom: 10 },
   borrowButton: { backgroundColor: '#4A90E2', padding: 10, borderRadius: 5, alignItems: 'center' },
   borrowText: { color: 'white', fontWeight: 'bold' },
 
@@ -206,24 +209,27 @@ const styles = StyleSheet.create({
   modalContent: {
     width: 300,
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#222', // Dark modal background
     borderRadius: 10,
     alignItems: 'center',
   },
-  modalTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 10 },
-  modalBookTitle: { fontSize: 16, color: '#555', marginBottom: 20 },
+  modalTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 10, color: 'white' },
+  modalBookTitle: { fontSize: 16, color: '#bbb', marginBottom: 20 },
   input: {
     width: '100%',
     height: 40,
-    borderColor: '#ccc',
+    borderColor: '#555', // Darker border
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
     marginBottom: 10,
+    backgroundColor: '#333', // Dark input field
+    color: 'white', // White text inside input
   },
   modalButtons: { flexDirection: 'row', marginTop: 10 },
-  cancelButton: { backgroundColor: '#ccc', padding: 10, borderRadius: 5, marginRight: 10 },
-  cancelText: { color: '#333', fontWeight: 'bold' },
+  cancelButton: { backgroundColor: '#555', padding: 10, borderRadius: 5, marginRight: 10 },
+  cancelText: { color: 'white', fontWeight: 'bold' },
   confirmButton: { backgroundColor: '#4A90E2', padding: 10, borderRadius: 5 },
   confirmText: { color: 'white', fontWeight: 'bold' },
 });
+

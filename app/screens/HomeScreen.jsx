@@ -1,94 +1,103 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Animated, Easing } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Animated, Easing, ImageBackground } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
-    const fadeAnim = new Animated.Value(0);
+    const fadeAnim = useRef(new Animated.Value(0)).current;
+    const buttonScale = useRef(new Animated.Value(1)).current;
 
-    // Animation to fade in the content when the page loads
-    React.useEffect(() => {
+    useEffect(() => {
         Animated.timing(fadeAnim, {
             toValue: 1,
-            duration: 1000,
-            easing: Easing.ease,
+            duration: 1200,
+            easing: Easing.out(Easing.ease),
             useNativeDriver: true,
         }).start();
     }, []);
 
+    const handlePressIn = () => {
+        Animated.timing(buttonScale, {
+            toValue: 0.9,
+            duration: 100,
+            useNativeDriver: true,
+        }).start();
+    };
+
+    const handlePressOut = () => {
+        Animated.timing(buttonScale, {
+            toValue: 1,
+            duration: 100,
+            useNativeDriver: true,
+        }).start();
+    };
+
     return (
-        <View style={styles.container}>
-            <Animated.View style={[styles.contentContainer, { opacity: fadeAnim }]}>
-                <Text style={styles.title}>📚 BorrowEase</Text>
-                <Text style={styles.subtitle}>Book Borrowing Management</Text>
+        <ImageBackground source={require('../assets/home.jpg')} style={styles.background}>
 
-                <View style={styles.descriptionContainer}>
-                    <Text style={styles.description}>
-                        Organize your library effortlessly! BorrowEase helps you manage and track books, borrowers, and transactions seamlessly.
-                        Start your hassle-free book borrowing experience now!
-                    </Text>
-                </View>
+            <View style={styles.overlay} />
+            
+            <Animated.Text style={[styles.title, { opacity: fadeAnim }]}> BorrowEase</Animated.Text>
+            <Animated.Text style={[styles.subtitle, { opacity: fadeAnim }]}>
+                Effortless Book Management
+            </Animated.Text>
 
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Book Management')}>
+            <Animated.View style={{ transform: [{ scale: buttonScale }] }}>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => navigation.navigate('Book Management')}
+                    onPressIn={handlePressIn}
+                    onPressOut={handlePressOut}
+                >
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
             </Animated.View>
-        </View>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
+    background: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5F7FA',
-        paddingTop: 30,  // Slightly reduced paddingTop to move content higher
+        width: '100%',
+        height: '100%',
     },
-    contentContainer: {
-        alignItems: 'center',
-        paddingHorizontal: 20,
-        backgroundColor: '#ffffff',
-        borderRadius: 20,
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowRadius: 10,
-        paddingVertical: 30,
-        width: '85%',
-        marginBottom: 50,
+    overlay: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dark overlay for contrast
     },
     title: {
-        fontSize: 36,
+        fontSize: 45,
         fontWeight: 'bold',
-        color: '#4A90E2',
-        marginBottom: 15,
-        textAlign: 'center',
+        color: '#00FFF7',
+        textShadowColor: '#0FF',
+        textShadowRadius: 15,
+        textTransform: 'uppercase',
     },
     subtitle: {
         fontSize: 18,
-        color: '#7B8D9E',
-        marginBottom: 25,
-        textAlign: 'center',
+        color: '#FFFFFF',
+        textShadowColor: '#0FF',
+        textShadowRadius: 10,
+        marginBottom: 30,
     },
     button: {
-        width: '80%',
-        padding: 15,
-        backgroundColor: '#4A90E2',
-        borderRadius: 12,
-        marginVertical: 10,
+        backgroundColor: 'rgba(0, 255, 247, 0.2)',
+        paddingVertical: 15,
+        paddingHorizontal: 40,
+        borderRadius: 30,
+        borderWidth: 2,
+        borderColor: '#00FFF7',
+        shadowColor: '#00FFF7',
+        shadowOpacity: 0.8,
+        shadowRadius: 10,
         alignItems: 'center',
-        elevation: 5,  // Added shadow to the button
     },
     buttonText: {
         fontSize: 18,
-        color: '#fff',
+        color: '#00FFF7',
         fontWeight: 'bold',
-    },
-    descriptionContainer: {
-        marginTop: 20,
-    },
-    description: {
-        fontSize: 16,
-        color: '#7B8D9E',
-        textAlign: 'center',
-        lineHeight: 22,
+        textTransform: 'uppercase',
+        letterSpacing: 2,
     },
 });

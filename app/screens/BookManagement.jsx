@@ -93,8 +93,8 @@ export default function BookManagement() {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>📖 Manage Books</Text>
-            <TextInput placeholder="Book Title" value={title} onChangeText={setTitle} style={styles.input} />
-            <TextInput placeholder="Author" value={author} onChangeText={setAuthor} style={styles.input} />
+            <TextInput placeholder="Book Title" value={title} onChangeText={setTitle} style={styles.input} placeholderTextColor="white" />
+            <TextInput placeholder="Author" value={author} onChangeText={setAuthor} style={styles.input} placeholderTextColor="white" />
             <TouchableOpacity style={styles.button} onPress={pickImage}>
                 <Text style={styles.buttonText}>📷 Pick an Image</Text>
             </TouchableOpacity>
@@ -130,15 +130,15 @@ export default function BookManagement() {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 16, backgroundColor: '#f5f5f5' },
-    title: { fontSize: 22, fontWeight: 'bold', textAlign: 'center', marginBottom: 10 },
-    input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginVertical: 5, borderRadius: 5, backgroundColor: 'white' },
+    container: { flex: 1, padding: 16, backgroundColor: 'black' },
+    title: { fontSize: 22, fontWeight: 'bold', textAlign: 'center', marginBottom: 10, color: 'white' },
+    input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginVertical: 5, borderRadius: 5, backgroundColor: '#333', color: 'white' },
     image: { width: 100, height: 150, alignSelf: 'center', marginVertical: 10, borderRadius: 10 },
-    bookCard: { flexDirection: 'row', alignItems: 'center', padding: 10, backgroundColor: 'white', marginVertical: 5, borderRadius: 8, shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 4, elevation: 2 },
+    bookCard: { flexDirection: 'row', alignItems: 'center', padding: 10, backgroundColor: '#222', marginVertical: 5, borderRadius: 8, shadowColor: '#fff', shadowOpacity: 0.1, shadowRadius: 4, elevation: 2 },
     bookImage: { width: 50, height: 70, marginRight: 10, borderRadius: 5 },
     bookInfo: { flex: 1 },
-    bookTitle: { fontSize: 16, fontWeight: 'bold' },
-    bookAuthor: { fontSize: 14, color: '#555' },
+    bookTitle: { fontSize: 16, fontWeight: 'bold', color: 'white' },
+    bookAuthor: { fontSize: 14, color: '#bbb' },
     actionButtons: { flexDirection: 'row', gap: 5 },
     editButton: { backgroundColor: '#F39C12', padding: 8, borderRadius: 5 },
     editText: { color: 'white', fontWeight: 'bold' },
@@ -149,3 +149,4 @@ const styles = StyleSheet.create({
     addButton: { backgroundColor: '#27AE60', padding: 12, borderRadius: 5, alignItems: 'center', marginVertical: 10 },
     addButtonText: { color: 'white', fontWeight: 'bold', fontSize: 16 },
 });
+
